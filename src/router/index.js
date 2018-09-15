@@ -27,7 +27,8 @@ export const router = new Router({
       {
         path: '/:username/repos',
         name: 'repos',
-        component: require('../components/repos.vue').default
+        component: require('../components/repos.vue').default,
+        props: true
       }
     ]
 });

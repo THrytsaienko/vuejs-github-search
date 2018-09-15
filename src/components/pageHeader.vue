@@ -5,13 +5,13 @@
         <router-link to="/">
           <img src="../assets/logo.png" class="header__logo">
         </router-link>
-		   		<p class="header__title">This simple Github API Mini Client was maid with Vue and Vue-router</p>
+		   		<p class="header__title">{{$t('mainTitle')}}</p>
 		  </div>
 		   <div class="header__menu">
 			   <ul class="header__list">
-				   <a @click.prevent href="#" class="header__link"><li class="header__item js-uk">Uk</li></a>
-				   <a @click.prevent href="#" class="header__link"><li class="header__item js-en">En</li></a>
-				   <a @click.prevent href="#" class="header__link"><li class="header__item js-ge">Ge</li></a>
+				   <a @click.prevent="changeLang('uk')" href="#" class="header__link" value="uk"><li class="header__item js-uk">Uk</li></a>
+				   <a @click.prevent="changeLang('en')" href="#" class="header__link" value="en"><li class="header__item js-en">En</li></a>
+				   <a @click.prevent="changeLang('ge')" href="#" class="header__link" value="ge"><li class="header__item js-ge">Ge</li></a>
 			   </ul>
 		   </div>
 	  </header>
@@ -25,7 +25,12 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
-  }
+  },
+  methods: {
+    changeLang(newLang){
+      this.$i18n.locale = newLang;
+    }
+}
 };
 </script>
 

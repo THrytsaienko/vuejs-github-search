@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import moment from 'moment';
 Vue.use(Vuex);
 // "Organization"
 // "User"
@@ -10,26 +11,8 @@ const typesOfUser = {
 
 export const store = new Vuex.Store({
   state: {
-    user: {
-      'avatar_url': '',
-      'bio': '',
-      'blog': '',
-      'company': '',
-      'organizations_url': '',
-      'created_at': '',
-      'email': '',
-      'followers': '',
-      'following': '',
-      'location': '',
-      'login': '',
-      'name': '',
-      'public_gists': '',
-      'public_repos': '',
-      'repos_url': '',
-      'type': '',
-      'updated_at': '',
-      'url': ''
-    }
+    user: {},
+    repos: []
   },
   getters: {
     getTypeOfUser(state){
@@ -41,8 +24,11 @@ export const store = new Vuex.Store({
     // }
   },
   mutations: {
-    updateUser(state, application){
-      Vue.set(state, 'user', application);
+    updateUser(state, userData){
+      Vue.set(state, 'user', userData);
+    },
+    updateRepos(state, reposData){
+      Vue.set(state, 'repos', reposData);
     }
     // updateApp(state, application){
     //   Vue.set(state, 'app', application);

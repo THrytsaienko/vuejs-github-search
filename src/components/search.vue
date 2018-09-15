@@ -1,7 +1,7 @@
 <template>
 	<div class="search">
-		<input type="text" placeholder="Enter Username or Organization" v-model="user">
-		<button @click="getUser()" type="submit" class="button">Search</button>
+		<input @keyup.enter="getUser" type="text" :placeholder="$t('placeholderInput')" v-model="user">
+		<button @click="getUser" type="submit" class="button">Search</button>
 	</div>
 </template>
 

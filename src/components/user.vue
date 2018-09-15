@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <div class="cards__container">
+    <div class="user">
+      <div class="user__container">
         <p>Welcome to my Github page! My name is <strong>{{this.username}}</strong>.</p>
         <div class="user__data">
           <div class="user__avatar">
@@ -22,7 +22,7 @@
           <div class="user__updated_at">Updated at: {{userData.updated_at}}</div>
           <div class="user__url">Url: <a :href=userData.url>{{userData.url}}</a></div>
         </div>
-        <router-link to="{name: repos}">View all repos</router-link>
+        <button class="user__button" @click="viewRepos">View all repos</button>
         <div class="cards">
         </div>
       </div>
@@ -41,12 +41,23 @@
       mounted(){
         console.log("this.username >>>", this.username);
         console.log('login from store >>>', this.userData);
+      },
+      methods: {
+        viewRepos(){
+          const api = `https://api.github.com/users/${this.username}/repos`;
+          this.$http.get(api).then(response => {
+            console.log("response.data 1 >>>", response.data);
+            console.log("user component this.userData >>>", this.userData.login);
+            this.$store.commit('updateRepos', response.data);
+            this.$router.push({path: `/${this.userData.login}/repos`, params: { username: this.userData.login}});
+          });
+        }
       }
     };
 </script>
 
 <style scoped lang="stylus">
-  .cards {
+  .user {
     &__container {
       width 100%
       max-width 1000px
@@ -54,9 +65,6 @@
       margin 0 auto
       background-color lightyellow
     }
-  }
-
-  .user {
     &__image {
       width 100%
       max-width 100px

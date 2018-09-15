@@ -27,11 +27,11 @@ export default {
 	font-family: 'Avenir', Helvetica, Arial, sans-serif;
 	color: #2c3e50;
   overflow hidden
+  box-sizing border-box
 }
 
 .app {
 	&__container {
-		width: 100%;
 		padding: 0 30px;
 	}
 }
