@@ -10,9 +10,6 @@ export default {
   name: "mainPage",
   components: {
     search: require("../components/search.vue").default
-  },
-  mounted() {
-    
   }
 };
 </script>

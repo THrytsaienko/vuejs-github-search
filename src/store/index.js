@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import moment from 'moment';
 Vue.use(Vuex);
-// "Organization"
-// "User"
+
 const typesOfUser = {
   'Organization': 1,
   'User': 2
@@ -12,6 +10,7 @@ const typesOfUser = {
 export const store = new Vuex.Store({
   state: {
     user: {},
+    username: '',
     repos: []
   },
   getters: {
@@ -26,6 +25,7 @@ export const store = new Vuex.Store({
   mutations: {
     updateUser(state, userData){
       Vue.set(state, 'user', userData);
+      Vue.set(state, 'username', userData['login']);
     },
     updateRepos(state, reposData){
       Vue.set(state, 'repos', reposData);

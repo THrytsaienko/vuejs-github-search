@@ -17,7 +17,6 @@ export default {
     getUser() {
       const api = `https://api.github.com/users/${this.user}`;
       this.$http.get(api).then(response => {
-        console.log("response.data >>>", response.data);
         this.$store.commit('updateUser', response.data);
         this.$router.push({path: `/${response.data['login']}`, params: { username: response.data['login']}});
       });

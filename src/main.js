@@ -20,29 +20,6 @@ const messages = {
   ge: require('../i18n/ge.json')
 };
 
-// const messages = {
-//   uk: {
-//     message: {
-//       placeholderInput: 'Введіть ім\'я користувача або організації',
-//       mainTitle: 'Заголовок'
-//     }
-//   },
-//   en: {
-//     message: {
-//       placeholderInput: 'Enter Username or Organization',
-//       mainTitle: 'This simple Github API Mini Client was maid with Vue and Vue-router'
-//     }
-//   },
-//   ge: {
-//     message: {
-//       placeholderInput: 'Geben Sie einen Benutzernamen oder eine Organisation',
-//       mainTitle: 'Überschrift'
-//     }
-//   }
-// };
-
-
-// Create VueI18n instance with options
 const i18n = new VueI18n({
   locale: 'uk', // set locale
   messages // set locale messages
@@ -51,7 +28,6 @@ console.log('VueI18n >>>', i18n.locale);
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
@@ -61,17 +37,4 @@ new Vue({
     App
   },
   template: '<App/>'
-// eslint-disable-next-line semi
 });
-
-// Vue.axios.get(api).then((response) => {
-// 	console.log(response.data)
-// })
-
-// this.axios.get(api).then((response) => {
-// 	console.log(response.data)
-// })
-
-// this.$http.get(api).then((response) => {
-// 	console.log(response.data)
-// })

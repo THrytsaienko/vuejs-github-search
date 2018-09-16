@@ -1,16 +1,16 @@
 <template>
     <div class="cards">
       <div class="cards__container">
-        <div class="card" v-for="repo in repos">
+        <div class="card" v-for="(repo, idx) in repos">
           <div class="card__title">Repo name: {{repo.name}}</div>
           <div class="card__description">Description: {{repo.description}}</div>
-          <div class="card__created">Created at: {{createdDate}}</div>
+          <div class="card__created">Created at: {{createdDate(idx)}}</div>
           <div class="card__forks">Forks: {{repo.forks}}</div>
           <div class="card__id">Repo ID: {{repo.id}}</div>
           <div class="card__language"> Languages: {{repo.language}}</div>
           <div class="card__issues">Open issues: {{repo['open_issues']}}</div>
           <div class="card__size">Size of repo: {{repo.size}}</div>
-          <div class="card__updated">Updated at: {{updatedDate}}</div>
+          <div class="card__updated">Updated at: {{updatedDate(idx)}}</div>
           <a :href="repo.svn_url" target="_blank" class="card__url">Link to repo</a>
           <div class="card__watchers">Watchers: {{repo.watchers}}</div>
         </div>
@@ -102,11 +102,13 @@
         repos(){
           return this.$store.state.repos;
         },
-        createdDate(){
-          return moment(this.$store.state.repos['created_at'], 'MMMM Do YYYY');
+      },
+      methods: {
+        createdDate(idx){
+          return moment(this.repos[idx]['created_at']).format('MMMM Do YYYY');
         },
-        updatedDate(){
-          return moment(this.$store.state.repos['updated_at'], 'MMMM Do YYYY');
+        updatedDate(idx){
+          return moment(this.repos[idx]['updated_at']).format('MMMM Do YYYY');
         }
       }
     };

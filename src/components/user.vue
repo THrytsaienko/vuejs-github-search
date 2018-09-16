@@ -2,6 +2,7 @@
     <div class="user">
       <div class="user__container">
         <p>Welcome to my Github page! My name is <strong>{{this.username}}</strong>.</p>
+        <button class="user__button" @click="viewRepos">View all repos</button>
         <div class="user__data">
           <div class="user__avatar">
             <img class="user__image" :src=userData.avatar_url alt="">
@@ -21,9 +22,6 @@
           <div class="user__type">Type: {{userData.type}}</div>
           <div class="user__updated_at">Updated at: {{userData.updated_at}}</div>
           <div class="user__url">Url: <a :href=userData.url>{{userData.url}}</a></div>
-        </div>
-        <button class="user__button" @click="viewRepos">View all repos</button>
-        <div class="cards">
         </div>
       </div>
     </div>
